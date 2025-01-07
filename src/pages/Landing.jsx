@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FaFileAlt, FaEnvelope, FaMagic, FaDownload, FaCloud, FaLock } from 'react-icons/fa';
+import { FaFileAlt, FaEnvelope, FaMagic, FaDownload, FaCloud, FaLock, FaCheckCircle, FaUsers } from 'react-icons/fa';
 import { BiTargetLock } from 'react-icons/bi';
 import { MdOutlineDesignServices } from 'react-icons/md';
 import { AiOutlineThunderbolt } from 'react-icons/ai';
@@ -44,6 +44,27 @@ const Landing = () => {
       icon: <FaLock className="text-4xl text-red-500" />,
       title: "Privacy Focused",
       description: "Your data is encrypted and protected with enterprise-grade security."
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Johnson",
+      role: "Software Engineer",
+      content: "This platform helped me land my dream job! The AI suggestions were spot-on and the templates are truly professional.",
+      image: "https://randomuser.me/api/portraits/women/1.jpg"
+    },
+    {
+      name: "Michael Chen",
+      role: "Marketing Manager",
+      content: "The cover letter builder is incredible. It helped me customize my application for each company while maintaining professionalism.",
+      image: "https://randomuser.me/api/portraits/men/2.jpg"
+    },
+    {
+      name: "Emily Davis",
+      role: "UX Designer",
+      content: "Clean interface, intuitive design, and powerful features. This is exactly what I needed for my job search.",
+      image: "https://randomuser.me/api/portraits/women/3.jpg"
     }
   ];
 
@@ -107,7 +128,6 @@ const Landing = () => {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Powerful Features</h2>
             <p className="text-xl text-gray-600">Everything you need to create professional documents</p>
           </motion.div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
@@ -117,12 +137,10 @@ const Landing = () => {
                 viewport={{ once: true }}
                 variants={fadeIn}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300"
+                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                <div className="mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
@@ -130,59 +148,107 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      {/* Statistics Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
+              <div className="text-4xl font-bold mb-2">50,000+</div>
+              <div className="text-xl">Resumes Created</div>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="text-4xl font-bold mb-2">95%</div>
+              <div className="text-xl">Success Rate</div>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              transition={{ delay: 0.4 }}
+            >
+              <div className="text-4xl font-bold mb-2">24/7</div>
+              <div className="text-xl">Support Available</div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
-            className="text-center text-white"
+            className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Ready to Land Your Dream Job?</h2>
-            <p className="text-xl mb-8">Start building your professional documents today</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Users Say</h2>
+            <p className="text-xl text-gray-600">Join thousands of satisfied professionals</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white p-6 rounded-xl shadow-lg"
+              >
+                <div className="flex items-center mb-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full mr-4"
+                  />
+                  <div>
+                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="text-gray-600">{testimonial.role}</div>
+                  </div>
+                </div>
+                <p className="text-gray-600 italic">"{testimonial.content}"</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Build Your Future?</h2>
+            <p className="text-xl text-gray-600 mb-8">Start creating your professional resume today</p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/signup')}
-              className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => navigate('/create-resume')}
+              className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold inline-flex items-center gap-2 hover:bg-blue-700 transition-colors"
             >
-              Get Started for Free
+              <FaFileAlt /> Get Started Now
             </motion.button>
           </motion.div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Resume Builder</h3>
-              <p className="text-gray-400">Create professional resumes and cover letters with our AI-powered platform.</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Templates</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Contact</h3>
-              <ul className="space-y-2">
-                <li className="text-gray-400">support@resumebuilder.com</li>
-                <li className="text-gray-400">+1 (555) 123-4567</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Resume Builder. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
