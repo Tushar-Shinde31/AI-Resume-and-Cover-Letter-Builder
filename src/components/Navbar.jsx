@@ -22,7 +22,7 @@ const Navbar = () => {
           {/* Logo and brand */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-xl font-bold text-primary">ResumeAI</span>
+              <span className="text-xl font-bold text-primary">Resume Perfect AI</span>
             </Link>
           </div>
 

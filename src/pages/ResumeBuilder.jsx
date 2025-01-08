@@ -133,36 +133,6 @@ function ResumeBuilder() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Resume Builder</h1>
-        <div className="space-x-2">
-          <button
-            onClick={handleExportPDF}
-            disabled={loading}
-            className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 inline-flex items-center"
-          >
-            <FaDownload className="mr-2" />
-            {loading ? 'Exporting...' : 'Export PDF'}
-          </button>
-          <button
-            onClick={handleSaveDraft}
-            disabled={savingDraft}
-            className="bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 inline-flex items-center"
-          >
-            <FaSave className="mr-2" />
-            {savingDraft ? 'Saving...' : 'Save Draft'}
-          </button>
-          <button
-            onClick={handleAIGenerate}
-            disabled={generating}
-            className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 inline-flex items-center"
-          >
-            <FaMagic className="mr-2" />
-            {generating ? 'Generating...' : 'AI Generate'}
-          </button>
-        </div>
-      </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Form Section */}
         <div className="space-y-6">
