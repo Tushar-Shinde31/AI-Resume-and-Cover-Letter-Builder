@@ -134,11 +134,11 @@ This project is licensed under the [MIT License](LICENSE).
 - [ReactJS](https://reactjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Firebase](https://firebase.google.com/)
-- [Gemini API](https://example.com) *(Replace with actual link)*
+- [Gemini API](https://ai.google.dev/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
 ---
 
 ## Author 👨‍💻
 
-Developed by **[Your Name](https://github.com/your-username)**. Connect with me on [LinkedIn](https://linkedin.com/in/your-profile).
+Developed by **[Tushar Shinde](https://github.com/Tushar-Shinde31)**. Connect with me on [LinkedIn](https://www.linkedin.com/in/tushar-shinde-262335257/).
