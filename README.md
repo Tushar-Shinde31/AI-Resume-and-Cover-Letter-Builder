@@ -139,6 +139,12 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
+## Here is sample 
+
+- [Resume](https://drive.google.com/file/d/1EnttPr6lMtRW4yHKrlp-h67_6-fqOxZb/view)
+- [Cover Letter](https://drive.google.com/file/d/1J_tsbQtE8nlXWNwli7Lqnnv58iRJoDDG/view?usp=sharing)
+
+
 ## Author 👨‍💻
 
 Developed by **[Tushar Shinde](https://github.com/Tushar-Shinde31)**. Connect with me on [LinkedIn](https://www.linkedin.com/in/tushar-shinde-262335257/).
