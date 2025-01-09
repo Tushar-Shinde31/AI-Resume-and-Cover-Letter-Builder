@@ -9,7 +9,6 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      // Navigate will be handled by the AuthContext
     } catch (error) {
       console.error("Failed to log out", error);
     }
@@ -19,7 +18,6 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 border-b bg-white/80 backdrop-blur-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo and brand */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <span className="text-xl font-bold text-primary">Resume Perfect AI</span>

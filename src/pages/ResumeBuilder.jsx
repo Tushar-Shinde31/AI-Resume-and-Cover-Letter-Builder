@@ -5,6 +5,7 @@ import WorkExperience from '../components/resume/WorkExperience';
 import Education from '../components/resume/Education';
 import Skills from '../components/resume/Skills';
 import Projects from '../components/resume/Projects';
+import Hobbies from '../components/resume/Hobbies';
 import { FaDownload, FaSave, FaMagic } from 'react-icons/fa';
 import { generateFullResume } from '../services/gemini';
 import { generatePDF, saveDraft, updateDraft } from '../services/documentUtils';
@@ -40,7 +41,8 @@ const initialResumeData = {
     technologies: '',
     industry: '',
     description: ''
-  }]
+  }],
+  hobbies: ['']
 };
 
 function ResumeBuilder() {
@@ -203,6 +205,16 @@ function ResumeBuilder() {
               projects={resumeData.projects}
               onChange={(newProjects) =>
                 setResumeData(prev => ({ ...prev, projects: newProjects }))
+              }
+            />
+          </div>
+
+          {/* Hobbies */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <Hobbies
+              hobbies={resumeData.hobbies}
+              onChange={(newHobbies) =>
+                setResumeData(prev => ({ ...prev, hobbies: newHobbies }))
               }
             />
           </div>
