@@ -26,7 +26,7 @@ A powerful AI-based tool that helps users generate professional resumes and cove
 
 ## Video Presentation 🎥
 
-<!-- Failed to upload "Resume Perfect AI - Google Chrome 2025-01-09 19-56-35.mp4" -->
+https://github.com/user-attachments/assets/2f6f578b-8d9e-44cb-8e52-563945a17529
 
 ## Installation 🖥️
 
