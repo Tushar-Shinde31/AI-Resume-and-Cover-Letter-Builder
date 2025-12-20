@@ -1,21 +1,21 @@
-# AI-Resume-and-Cover-Letter-Builder 📝🤖
+# AI-Resume-and-Cover-Letter-Builder
 
 A powerful AI-based tool that helps users generate professional resumes and cover letters effortlessly. Built using **ReactJS**, **TailwindCSS**, **Gemini API**, and **Firebase** for authentication, this project simplifies the job application process.
 
 ---
 
-## Features ✨
+## Features 
 
 - **AI-Powered Resume Builder**: Generate tailored resumes based on your input.
 - **Cover Letter Generator**: Create personalized cover letters in seconds.
-- **User Authentication**: 🔒 Secure login and registration using Firebase.
-- **Responsive Design**: 📱 Mobile-first and fully responsive UI with TailwindCSS.
-- **Modern Icons**: 🎨 Enhanced visual experience using React Icons.
-- **Gemini API Integration**: 🚀 Leverages AI capabilities for resume and cover letter generation.
+- **User Authentication**:  Secure login and registration using Firebase.
+- **Responsive Design**:  Mobile-first and fully responsive UI with TailwindCSS.
+- **Modern Icons**:  Enhanced visual experience using React Icons.
+- **Gemini API Integration**:  Leverages AI capabilities for resume and cover letter generation.
 
 ---
 
-## Tech Stack 🛠️
+## Tech Stack 
 
 - **Frontend**: ReactJS, TailwindCSS
 - **Authentication**: Firebase
@@ -24,11 +24,11 @@ A powerful AI-based tool that helps users generate professional resumes and cove
 
 ---
 
-## Video Presentation 🎥
+## Video Presentation 
 
 https://github.com/user-attachments/assets/2f6f578b-8d9e-44cb-8e52-563945a17529
 
-## Installation 🖥️
+## Installation 
 
 Follow these steps to set up the project locally:
 
@@ -57,7 +57,7 @@ The app will be available at `http://localhost:3000`.
 
 ---
 
-## Project Structure 📂
+## Project Structure 
 
 ```
 AI-Resume-and-Cover-Letter-Builder
@@ -76,7 +76,7 @@ AI-Resume-and-Cover-Letter-Builder
 
 ---
 
-## Screenshots 📸
+## Screenshots 
 
 | **Feature**             | **Screenshot**               |
 |-------------------------|-----------------------------|
@@ -86,7 +86,7 @@ AI-Resume-and-Cover-Letter-Builder
 
 ---
 
-## Deployment 🚀
+## Deployment 
 
 The project can be deployed to platforms like **Vercel**, **Netlify**, or **Firebase Hosting**.
 
@@ -106,7 +106,7 @@ The project can be deployed to platforms like **Vercel**, **Netlify**, or **Fire
 
 ---
 
-## Contributions 🤝
+## Contributions 
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
@@ -127,13 +127,13 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ---
 
-## License 📜
+## License 
 
 This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Acknowledgments 🙌
+## Acknowledgments 
 
 - [ReactJS](https://reactjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
@@ -149,6 +149,6 @@ This project is licensed under the [MIT License](LICENSE).
 - [Cover Letter](https://drive.google.com/file/d/1J_tsbQtE8nlXWNwli7Lqnnv58iRJoDDG/view?usp=sharing)
 
 
-## Author 👨‍💻
+## Author 
 
 Developed by **[Tushar Shinde](https://github.com/Tushar-Shinde31)**. Connect with me on [LinkedIn](https://www.linkedin.com/in/tushar-shinde-262335257/).
