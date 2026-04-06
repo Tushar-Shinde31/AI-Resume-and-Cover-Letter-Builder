@@ -1,16 +1,102 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI('AIzaSyCLtu3I0Y3K8wfq-xyOpsOHiqm1y1iSiNM');
+const GEMINI_API_KEY =
+  import.meta.env.VITE_GEMINI_API_KEY ||
+  'AIzaSyCpkcDKnicYx_LW02tdq5rh1Z4i3kPVh7k';
+const GEMINI_MODEL = import.meta.env.VITE_GEMINI_MODEL || 'gemini-1.5-flash';
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+const MODEL_CANDIDATES = [GEMINI_MODEL, 'gemini-1.5-flash', 'gemini-1.5-pro'];
+let resolvedModelPromise = null;
 
-export async function generateResumeContent(prompt, currentContent = '') {
+function normalizeModelName(name) {
+  return name.startsWith('models/') ? name.replace('models/', '') : name;
+}
+
+async function resolveAvailableModel() {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models?key=${GEMINI_API_KEY}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`Failed to list Gemini models (status ${response.status}).`);
+  }
+
+  const data = await response.json();
+  const models = data?.models || [];
+  const generationModels = models
+    .filter((m) => m?.supportedGenerationMethods?.includes('generateContent'))
+    .map((m) => normalizeModelName(m.name));
+
+  if (!generationModels.length) {
+    throw new Error('No generateContent-capable Gemini models found for this API key.');
+  }
+
+  const uniqueCandidates = [...new Set(MODEL_CANDIDATES.map(normalizeModelName))];
+  const preferred = uniqueCandidates.find((candidate) =>
+    generationModels.includes(candidate)
+  );
+
+  return preferred || generationModels[0];
+}
+
+async function getWorkingModelName() {
+  if (!resolvedModelPromise) {
+    resolvedModelPromise = resolveAvailableModel();
+  }
+
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
-    const result = await model.generateContent(
-      `${prompt}\nCurrent content: ${currentContent}`
-    );
+    return await resolvedModelPromise;
+  } catch (error) {
+    resolvedModelPromise = null;
+    throw error;
+  }
+}
+
+async function generateWithBestAvailableModel(fullPrompt) {
+  const modelName = await getWorkingModelName();
+
+  try {
+    const model = genAI.getGenerativeModel({ model: modelName });
+    const result = await model.generateContent(fullPrompt);
     const response = await result.response;
     return response.text();
   } catch (error) {
+    // If model support changed while app is running, re-resolve once and retry.
+    const message = error?.message || '';
+    const isModelNotFound =
+      message.includes('not found for API version') || message.includes('is not found');
+
+    if (isModelNotFound) {
+      resolvedModelPromise = null;
+      const refreshedModelName = await getWorkingModelName();
+      const refreshedModel = genAI.getGenerativeModel({ model: refreshedModelName });
+      const refreshedResult = await refreshedModel.generateContent(fullPrompt);
+      const refreshedResponse = await refreshedResult.response;
+      return refreshedResponse.text();
+    }
+
+    throw error;
+  }
+}
+
+export async function generateResumeContent(prompt, currentContent = '') {
+  try {
+    if (!GEMINI_API_KEY || GEMINI_API_KEY === 'your_gemini_api_key_here') {
+      throw new Error(
+        'Missing Gemini API key. Set VITE_GEMINI_API_KEY in your .env file.'
+      );
+    }
+
+    const fullPrompt = `${prompt}\nCurrent content: ${currentContent}`;
+    return await generateWithBestAvailableModel(fullPrompt);
+  } catch (error) {
+    if (
+      error?.message?.includes('not found for API version') ||
+      error?.message?.includes('No generateContent-capable Gemini models found')
+    ) {
+      console.error(
+        'No compatible Gemini model was found for this API key. Use an API key generated from Google AI Studio and set it as VITE_GEMINI_API_KEY in .env.'
+      );
+    }
     console.error('Error generating content:', error);
     throw error;
   }
