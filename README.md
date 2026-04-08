@@ -57,21 +57,17 @@ The app will be available at `http://localhost:3000`.
 
 ---
 
-## Project Structure 
+## Setup ENV's 
 
 ```
-AI-Resume-and-Cover-Letter-Builder
-├── src
-│   ├── components   # Reusable UI components
-│   ├── pages        # Application pages (Home, Dashboard, etc.)
-│   ├── firebase.js  # Firebase configuration
-│   ├── App.js       # Main app component
-│   ├── index.js     # Entry point
-│   └── assets       # Static assets (images, icons, etc.)
-├── public           # Public files (index.html, etc.)
-├── package.json     # Project dependencies and scripts
-├── tailwind.config.js # TailwindCSS configuration
-└── README.md        # Project documentation
+VITE_FIREBASE_API_KEY
+VITE_FIREBASE_AUTH_DOMAIN
+VITE_FIREBASE_PROJECT_ID
+VITE_FIREBASE_STORAGE_BUCKET
+VITE_FIREBASE_MESSAGING_SENDER_ID
+VITE_FIREBASE_APP_ID
+VITE_FIREBASE_MEASUREMENT_ID
+VITE_GEMINI_API_KEY
 ```
 
 ---
