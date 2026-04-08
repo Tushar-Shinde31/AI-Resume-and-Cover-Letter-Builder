@@ -1,9 +1,8 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const GEMINI_API_KEY =
-  import.meta.env.VITE_GEMINI_API_KEY ||
-  'AIzaSyCpkcDKnicYx_LW02tdq5rh1Z4i3kPVh7k';
-const GEMINI_MODEL = import.meta.env.VITE_GEMINI_MODEL || 'gemini-1.5-flash';
+  import.meta.env.VITE_GEMINI_API_KEY;
+const GEMINI_MODEL = import.meta.env.VITE_GEMINI_MODEL;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const MODEL_CANDIDATES = [GEMINI_MODEL, 'gemini-1.5-flash', 'gemini-1.5-pro'];
 let resolvedModelPromise = null;
